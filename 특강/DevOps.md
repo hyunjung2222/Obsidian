@@ -1,4 +1,5 @@
--  Development + Operation (개발 + 운영)
+# DevOps?
+- Development + Operation (개발 + 운영)
 - 소프트웨어 개발 및 IT 운영 팀의 작업을 결합하고 자동화하여 고품질 애플리케이션 및 서비스 제공을 가속화하는 소프트웨어 개발 방법론
 
 ## CI

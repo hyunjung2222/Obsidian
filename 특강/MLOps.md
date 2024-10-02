@@ -1,4 +1,5 @@
--   DevOps를 ML 시스템에 적용한 것
+# MLOps?
+- DevOps를 ML 시스템에 적용한 것
 - 데이터를 수집하고 분석하는 단계, ML 모델을 학습하고 배포하는 단계까지 전 과정을 AI Lifecycle로 보고 MLOps의 대상으로 보고 있음
 
 ![[Pasted image 20240927172340.png]]
