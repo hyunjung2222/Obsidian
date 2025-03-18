@@ -51,4 +51,43 @@ RQ(Research Question): What is MLOps?
 	- 배포 자동화 (예: Kubernetes, Docker)
 	- 모니터링 및 로깅 (예: Prometheus, Logstash)
 # 3. Methodology
+혼합 연구 방법을 적용 (그림1 참조)
+![[MLOps_Overviewof_the_methodology.png]]
 
+## 3.1 Literature Review
+- non-peer-reviewed 문헌도 포함
+- 2021년 5월에 학술 데이터베이스를 검색, 총 1864개의 논문 찾음, 최종적으로 27편을 연구에 포함
+## 3.2 Tool Review
+- 관련 도구의 개요는 부록의 Table1에 정리되어 있음
+## 3.3 Interview Study
+- 반구조화된 전문가 인터뷰를 수행함
+- 전문가 인터뷰 연구 설계에서 중요한 요소 중 하나는 적절한 샘플 크기 선택 -> 우리는 이론적 샘플링 접근법을 적용
+- Linkedin에서 ML 전문가를 식별하여 interview saturation 진행
+# 4. Results
+- 앞서 설명한 방법론을 적용하여, MLOps의 핵심 원칙, 이를 구체화하는 구성 요소, 필요한 역할 그리고 이러한 요소들을 조합하여 도출된 아키텍처 및 워크플로우를 제안함
+- 마지막으로, MLOps 개념을 정립하고 이에 대한 정의를 제공함
+## 4.1 Principles
+- 연구를 통해 MLOps를 실현하는 데 필요한 9가지 원칙을 도출함
+- Figure 2는 이 원칙들을 시각화하고 각각이 어떤 구성 요소와 연결되는지를 보여줌
+- CI/CD 자동화, 워크플로우 오케스트레이션, 재현성, 버전관리, 협업, 지속적인 ML학습 및 평가, ML 메타데이터 추적 및 로깅, 지속적 모니터링, 피드백 루프
+![[MLOps_principles.png]]
+## 4.2 Technical Components
+1. CI/CD 구성 요소
+	1. 빌드, 테스트, 제공, 배포 단계를 담당
+	2. 특정 단계의 성공 또는 실패 여부를 개발자에게 빠르게 피드백하여 전체 생산성을 높임
+	3. ex. Jenkins, GitHub Actions
+2. 소스 코드 저장소
+	1. 코드 저장과 버전 관리를 보장
+	2. ex. Bitbucket, GitLab, GitHub
+3. 워크플로우 오케스트레이션 구성 요소
+	1. DAG(유향 비순환 그래프)를 사용하여 ML 워크플로우의 태스크를 오케스트레이션을 함
+	2. DAG는 실행 순서와 각 단계에서 사용하는 아티팩트를 나타냄
+	3. ex. Apache Airflow, Kubeflow Pipelines, AWS SageMaker Pipelines
+4. 피처 저장소 시스템
+	1. 공통적으로 사용되는 피처를 중앙에서 관리함
+	2. 두 개의 데이터베이스로 구성
+		1. 실험용으로 보통 지연 시간을 가지는 오프라인 저장소
+		2. 프로덕션 환경에서 예측을 수행하기 위한 저지연 온라인 저장소
+	3. ex. Google Feast, Amazon AWS Feature Store
+5. 모델 학습 인프라
+	1. 분산 또는 비분산 형태일 수 있으며, 일반적으로 확장 

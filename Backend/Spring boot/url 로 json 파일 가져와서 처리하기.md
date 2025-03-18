@@ -2,7 +2,7 @@
 
 # url 내용 확인하기
 1. 터미널 창에서 아래와 같이 입력하면
-`http -v https://open.er-api.com/v6/latest/USD 
+`http -v https://open.er-api.com/v6/latest/USD
 
 2. 아래와 같은 출력 결과가 나옴
 3. body 에 들어있는 것이 어떠한 형식인가 content-type 에 적혀있음 (여기선 json)
