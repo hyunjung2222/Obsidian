@@ -52,7 +52,7 @@ RQ(Research Question): What is MLOps?
 	- 모니터링 및 로깅 (예: Prometheus, Logstash)
 # 3. Methodology
 혼합 연구 방법을 적용 (그림1 참조)
-![[MLOps_Overviewof_the_methodology.png]]
+![[MLOpsOverviewof_the_methodology.png | 500]]
 
 ## 3.1 Literature Review
 - non-peer-reviewed 문헌도 포함
@@ -70,7 +70,7 @@ RQ(Research Question): What is MLOps?
 - 연구를 통해 MLOps를 실현하는 데 필요한 9가지 원칙을 도출함
 - Figure 2는 이 원칙들을 시각화하고 각각이 어떤 구성 요소와 연결되는지를 보여줌
 - CI/CD 자동화, 워크플로우 오케스트레이션, 재현성, 버전관리, 협업, 지속적인 ML학습 및 평가, ML 메타데이터 추적 및 로깅, 지속적 모니터링, 피드백 루프
-![[MLOps_principles.png]]
+![[MLOpsPrinciples.png | 600]]
 ## 4.2 Technical Components
 1. CI/CD 구성 요소
 	1. 빌드, 테스트, 제공, 배포 단계를 담당
@@ -91,3 +91,57 @@ RQ(Research Question): What is MLOps?
 	3. ex. Google Feast, Amazon AWS Feature Store
 5. 모델 학습 인프라
 	1. 분산 또는 비분산 형태일 수 있으며, 일반적으로 확장 
+	2. ex. Kubernetes, Red Hat OpenShift
+6. 모델 레지스트리
+	1. 학습된 ML 모델과 해당 메타데이터를 중앙에서 저장.
+	2. 주요 기능: ML 아티팩트 저장 및 ML 메타데이터 저장
+	3. ex. (고급 저장소)MLflow, AWS SageMaker (간단한 저장소) Microsoft Azure Storage, Google Cloud Storage, Amazon AWS S3
+7. ML 메타데이터 저장소
+	1. ML 워크플로우 파이프라인의 각 태스크에서 발생하는 다양한 메타데이터를 추적할 수 있도록 함.
+	2. 또 다른 메타데이터 저장소는 모델 레지스트리 내부에 구성되어 각 학습 작업의 메타데이터, 모델 관련 메타데이터를 기록할 수 있음
+	3. ex. Kubeflow Pipelines, AWS SageMaker Pipelines
+8. 모델 서빙 구성 요소
+	1. 다양한 목적에 맞게 설정 가능 (예: 온라인 추론, 배치 추론 등)
+	2. 서빙은 REST API 등을 통해 제공될 수 있음.
+	3. 기본 인프라 계층으로 확장 가능하고 분산된 모델 서빙 인프라를 권장함
+	4. ex. Kubernetes와 Docker를 사용한 ML 모델 컨테이너화 및 Flask를 이용한 REST API 기반 서빙
+		1. 기타 Kubernetes 지원 프레임워크: Kubeflow KServing
+		2. 배치 예측을 위한 프레임워크: Apache Spark
+		3. 클라우드 기반 서빙: Microsoft Azure ML REST API, AWS SageMaker Endpoints...
+9. 모니터링 구성 요소
+	1. 모델 서빙 성능의 지속적인 모니터링을 담당
+	2. ML 인프라, CI/CD, 오케스트레이션의 모니터링
+	3. ex. Prometheus + Gragana, ELK 스택, TensorBoard
+		1. 내장 모니터링 기능이 있는 예시: Kubeflow, MLflow, AWS SageMaker Model Monitor 및 CloudWatch
+## 4.3 Roles
+![[MLOpsRoles.png | 400]]
+- MLOps는 다양한 분야가 협력하는 프로세스로, 서로 다른 역할 간의 상호 작용이 ML 시스템을 설계, 관리, 자동화, 운영하는 데 필수적
+- 다음은 각 역할, 그 목적, 관련된 주요 업무에 대한 간략한 설명임
+1. 비즈니스 이해관계자
+	1. ML을 통해 달성할 비즈니스 목표를 정의하고 비즈니스 관점에서의 커뮤니케이션을 담당
+2. 솔루션 아키텍트
+	1. 시스템 아키텍처를 설계하고 사용할 기술을 평가하여 결정하는 역할
+3. 데이터 사이언티스트
+	1. 비즈니스 문제를 ML 문제로 변환하고 모델 엔지니어링을 담당하며, 최적의 알고리즘과 하이퍼파리미터를 선택하는 역할
+4. 데이터 엔지니어
+	1. 데이터 및 피처 엔지니어링 파이프라인을 구축하고 관리하는 역할
+	2. 피처 저장소 시스템의 데이터베이스로 적절하게 데이터를 수집할 수 있도록 보장
+5. 소프트웨어 엔지니어
+	1. 소프트웨어 설계 패턴, 널리 받아들여진 코딩 가이드라인, 베스트 프랙티스를 적용하여 ML 문제를 체계적으로 구축된 제품으로 변환하는 역할
+6. DevOps 엔지니어
+	1. 개발과 운영 간의 격차를 해소하는 역할을 하며, CI/CD 자동화, ML 워크플로우 오케스트레이션, 모델 배포, 모니터링을 보장함
+7. ML 엔지니어 / MLOps 엔지니어
+	1. ML 인프라를 구축 및 운영하고, 자동화된 ML 워크플로우 파이프라인을 관리
+	2. 모델을 프로덕션 환경에 배포
+	3. 모델 및 ML 인프라를 모니터링하는 업무를 수행
+# 5. Architecture ans Workflow
+![[MLOPsArchitecture&Workflow.png]]
+
+- 위 사진은 일반적인 End-to-end MLOps 아키텍처. 다양한 단계에서 수행되는 작업들의 순서를 포함한 워크플로우도 함께 제시됨.
+- MLOps 프로젝티 기획부터 모델 서빙까지 포함하며, 다음과 같은 네 단계로 구성됨
+	- (A) MLOps 프로젝트 기획 (B) 피처 엔지니어링 파이프라인(데이터 수집 및 피처 저장소 적재 포함)
+	- (C) 실험 과정 (D) 자동화된 ML 워크플로우 파이프라인 및 모델 서빙
+### (A) MLOps 프로젝트 기획
+### (B) 피처 엔지니어링 파이프라인
+### (C) 실험 과정
+### (D) 자동화된 ML 워크플로우 파이프라인 및 모델 서빙
