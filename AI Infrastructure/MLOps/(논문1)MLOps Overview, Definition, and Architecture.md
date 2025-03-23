@@ -134,7 +134,7 @@ RQ(Research Question): What is MLOps?
 	1. ML 인프라를 구축 및 운영하고, 자동화된 ML 워크플로우 파이프라인을 관리
 	2. 모델을 프로덕션 환경에 배포
 	3. 모델 및 ML 인프라를 모니터링하는 업무를 수행
-# 5. Architecture ans Workflow
+# 5. Architecture and Workflow
 ![[MLOPsArchitecture&Workflow.png]]
 
 - 위 사진은 일반적인 End-to-end MLOps 아키텍처. 다양한 단계에서 수행되는 작업들의 순서를 포함한 워크플로우도 함께 제시됨.
