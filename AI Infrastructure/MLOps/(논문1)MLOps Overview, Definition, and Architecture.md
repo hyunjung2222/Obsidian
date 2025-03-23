@@ -138,7 +138,7 @@ RQ(Research Question): What is MLOps?
 ![[MLOPsArchitecture&Workflow.png]]
 
 - 위 사진은 일반적인 End-to-end MLOps 아키텍처. 다양한 단계에서 수행되는 작업들의 순서를 포함한 워크플로우도 함께 제시됨.
-- MLOps 프로젝티 기획부터 모델 서빙까지 포함하며, 다음과 같은 네 단계로 구성됨
+- MLOps 프로젝트 기획부터 모델 서빙까지 포함하며, 다음과 같은 네 단계로 구성됨
 	- (A) MLOps 프로젝트 기획 (B) 피처 엔지니어링 파이프라인(데이터 수집 및 피처 저장소 적재 포함)
 	- (C) 실험 과정 (D) 자동화된 ML 워크플로우 파이프라인 및 모델 서빙
 ### (A) MLOps 프로젝트 기획
